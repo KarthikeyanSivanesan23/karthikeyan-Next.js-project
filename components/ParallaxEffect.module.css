@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+
+/* Scoped Styles for CSS Modules */
+.section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, #0a2a43, transparent);
+  z-index: 100;
+}
+
+.section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0a2a43;
+  z-index: 100;
+  mix-blend-mode: color;
+}
+
+.bg,
+.moon,
+.mountain,
+.road {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.text {
+  position: relative;
+  color: #fff;
+  font-size: 5em;
+  z-index: 1;
+  text-align: center;
+  top: 100px; /* Move the text 20px down */
+  opacity: 1; /* Start fully visible */
+  transition: opacity 0.3s ease-out, font-size 0.3s ease-in-out; /* Add opacity transition */
+}
+
+.road {
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .text {
+    font-size: 6em; /* Smaller font size on tablet and mobile devices */
+  }
+
+  .moon {
+    object-fit: contain; /* Ensure the moon scales properly */
+    object-position: center top; /* Center the moon in the viewport */
+    z-index: 2; /* Ensure it is above the background */
+  }
+
+  .section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align the content to the top of the screen */
+  }
+
+  .section::before {
+    height: 50px; /* Adjust gradient height for mobile */
+  }
+
+  .section::after {
+    height: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .text {
+    font-size: 5em; /* Even smaller font size on very small screens */
+  }
+
+  .moon {
+    object-fit: contain; /* Ensure moon scales properly */
+    object-position: center center; /* Keep moon in focus */
+    z-index: 2; /* Ensure visibility above other elements */
+  }
+}
