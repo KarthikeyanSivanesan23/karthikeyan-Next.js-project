@@ -11,8 +11,7 @@ const Home = () => {
   return (
     <section className="h-full relative">
       {/* Parallax effect as background */}
-      
-      
+
       <div className="container mx-auto h-full relative z-10">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-4 xl:pb-24">
           <div className="text-center xl:text-left order-2 xl:order-none">
@@ -30,14 +29,20 @@ const Home = () => {
             </p>
             {/* btn and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
-              <Button
-                variant="outline"
-                size="lg"
-                className="uppercase flex items-center gap-2"
+              <a
+                href="/images/karthikeyan experience.pdf" // Path to your resume file
+                download="Karthikeyan_S_Resume.pdf" // Sets the download filename
               >
-                <span>Download CV</span>
-                <FiDownload className="text-xl" />
-              </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="uppercase flex items-center gap-2"
+                >
+                  <span>Download CV</span>
+                  <FiDownload className="text-xl" />
+                </Button>
+              </a>
+
               <div className="mb-8 xl:mb-0">
                 <Socials
                   containerStyles="flex gap-6"
@@ -51,11 +56,10 @@ const Home = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Stats and Endcard Section */}
       <Stats />
       <Endcard />
-      
     </section>
   );
 };
